@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Corona Virus Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <body>  	
+  
+  <div class="container">
+  	
+  	<h1 ><span class="badge badge-danger">Corona Virus Tracker Application</span></h1>
+  	<h4>We here Display the total number of cases Reported all over the World.</h4>
+  	
+  	<div class="jumbotron">
+		  <h2 class="display-3" th:text="${totalreportedcases}">NA</h2>
+		  <h2><p class=" lead ">Total Cases reported till Today.</p></h2>
+		  <hr class="my-4">
+		  <h2 class="display-3" th:text="${totalnewcases}">NA</h2>
+		  <h2><p class=" lead ">Total new Cases reported Yesterday.</p></h2>
+	</div>
+  	
+  	  
+    <table class="table">
+      <tr>
+        <h3><th><span class="display-4 badge badge-dark">State</span></th></h3>
+        <h3><th><span class="display-4 badge badge-dark">Country</span></th></h3>
+        <h3><th><span class="display-4 badge badge-dark">Total</span></th></h3>
+        <h3><th><span class="display-4 badge badge-dark">New</span></th></h3>
+      </tr>
+      <tr th:each="stat : ${locationstats}">
+        <td th:text="${stat.state}">NA</td>
+        <td th:text="${stat.country}">NA</td>
+        <td th:text="${stat.latesttotalcases}">0</td>
+        <td th:text="${stat.newCasesToday}">0</td>
+      </tr>
+    </table>
+    
+    </div>
+  	
+  </body>
+
+</html>
